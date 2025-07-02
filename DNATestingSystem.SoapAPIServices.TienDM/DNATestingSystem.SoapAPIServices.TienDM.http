@@ -1,0 +1,6 @@
+@DNATestingSystem.SoapAPIServices.TienDM_HostAddress = http://localhost:5027
+
+GET {{DNATestingSystem.SoapAPIServices.TienDM_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
