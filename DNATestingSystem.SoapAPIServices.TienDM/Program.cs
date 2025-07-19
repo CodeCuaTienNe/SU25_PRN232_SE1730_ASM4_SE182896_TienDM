@@ -17,6 +17,9 @@ builder.Services.AddScoped<IServiceProviders, ServiceProviders>();
 // Add SOAP Services
 builder.Services.AddScoped<IAppointmentsTienDmSoapService, AppointmentsTienDmSoapService>();
 
+// Add SoapCore services
+builder.Services.AddSoapCore();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -44,31 +44,32 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "System.ServiceModel.Duplex": {
+            "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.0.1, )"
             },
-            "System.ServiceModel.Federation": {
+            "Microsoft.Extensions.Hosting": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "System.ServiceModel.Http": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.0.0, )"
             },
-            "System.ServiceModel.NetTcp": {
+            "System.ServiceModel.Primitives": {
               "target": "Package",
-              "version": "[6.0.*, )"
-            },
-            "System.ServiceModel.Security": {
-              "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -87,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
