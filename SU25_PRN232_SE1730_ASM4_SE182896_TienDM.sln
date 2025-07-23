@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNATestingSystem.SoapAPISer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATestingSystem.SoapClient.ConsoleApp.TienDM", "DNATestingSystem.SoapClient.ConsoleApp.TienDM\DNATestingSystem.SoapClient.ConsoleApp.TienDM.csproj", "{86EC1105-0237-4460-9BE8-465C5C60E6EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATestingSystem.SOAPClient.Razor.TienDM", "DNATestingSystem.SOAPClient.Razor.TienDM\DNATestingSystem.SOAPClient.Razor.TienDM.csproj", "{E1989539-0089-4198-B5F2-AC5767285D78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{86EC1105-0237-4460-9BE8-465C5C60E6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86EC1105-0237-4460-9BE8-465C5C60E6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86EC1105-0237-4460-9BE8-465C5C60E6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1989539-0089-4198-B5F2-AC5767285D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1989539-0089-4198-B5F2-AC5767285D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1989539-0089-4198-B5F2-AC5767285D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1989539-0089-4198-B5F2-AC5767285D78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,111 @@
+﻿@page
+@model DNATestingSystem.SOAPClient.Razor.TienDM.IndexModel
+
+@{
+    ViewData["Title"] = "Appointments Index";
+}
+
+<h1>Appointments Management</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New Appointment</a>
+</p>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-warning">
+        @Model.ErrorMessage
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (Model.AppointmentsTienDm.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointmentsTienDm[0].AppointmentDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointmentsTienDm[0].AppointmentTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointmentsTienDm[0].SamplingMethod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointmentsTienDm[0].ContactPhone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointmentsTienDm[0].TotalAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AppointmentsTienDm[0].IsPaid)
+                </th>
+                <th>UserAccountId</th>
+                <th>ServicesNhanVtid</th>
+                <th>AppointmentStatusesTienDmid</th>
+@*                 <th>Status</th>
+                <th>Service</th>
+                <th>User Email</th>
+                <th>Actions</th> *@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AppointmentsTienDm)
+            {
+                <tr>
+                    <td>
+                        @(DateTime.TryParse(item.AppointmentDate, out var date) ? date.ToString("yyyy-MM-dd") : item.AppointmentDate)
+                    </td>
+                    <td>
+                        @(TimeSpan.TryParse(item.AppointmentTime, out var time) ? time.ToString(@"hh\:mm") : item.AppointmentTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SamplingMethod)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalAmount)
+                    </td>
+                    <td>
+                        @if (item.IsPaid)
+                        {
+                            <span class="badge bg-success">Paid</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">Unpaid</span>
+                        }
+                    </td>
+                    <td>@item.UserAccountId</td>
+                    <td>@item.ServicesNhanVtid</td>
+                    <td>@item.AppointmentStatusesTienDmid</td>
+@*                     <td>@Html.DisplayFor(modelItem => item.StatusName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ServiceName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UserEmail)</td> *@
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.AppointmentsTienDmid" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-page="./Details" asp-route-id="@item.AppointmentsTienDmid" class="btn btn-sm btn-info">Details</a>
+                        <a asp-page="./Delete" asp-route-id="@item.AppointmentsTienDmid" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <h4>No appointments found</h4>
+        <p>There are currently no appointments in the system. <a asp-page="Create">Create the first one</a>.</p>
+    </div>
+}

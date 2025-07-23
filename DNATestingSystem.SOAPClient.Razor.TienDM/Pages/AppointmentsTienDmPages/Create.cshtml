@@ -1,0 +1,83 @@
+﻿@page
+@model DNATestingSystem.SOAPClient.Razor.TienDM.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AppointmentsTienDm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.UserAccountId" class="control-label">User Account ID</label>
+                <input asp-for="AppointmentsSoapModel.UserAccountId" class="form-control" type="number" min="1" />
+                <span asp-validation-for="AppointmentsSoapModel.UserAccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.ServicesNhanVtid" class="control-label">Service ID</label>
+                <input asp-for="AppointmentsSoapModel.ServicesNhanVtid" class="form-control" type="number" min="1" />
+                <span asp-validation-for="AppointmentsSoapModel.ServicesNhanVtid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.AppointmentStatusesTienDmid" class="control-label">Status ID</label>
+                <input asp-for="AppointmentsSoapModel.AppointmentStatusesTienDmid" class="form-control" type="number" min="1" />
+                <span asp-validation-for="AppointmentsSoapModel.AppointmentStatusesTienDmid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.AppointmentDateOnly" class="control-label">Appointment Date</label>
+                <input asp-for="AppointmentsSoapModel.AppointmentDateOnly" class="form-control" type="date" />
+                <span asp-validation-for="AppointmentsSoapModel.AppointmentDateOnly" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.AppointmentTimeOnly" class="control-label">Appointment Time</label>
+                <input asp-for="AppointmentsSoapModel.AppointmentTimeOnly" class="form-control" type="time" />
+                <span asp-validation-for="AppointmentsSoapModel.AppointmentTimeOnly" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.SamplingMethod" class="control-label"></label>
+                <input asp-for="AppointmentsSoapModel.SamplingMethod" class="form-control" />
+                <span asp-validation-for="AppointmentsSoapModel.SamplingMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.Address" class="control-label"></label>
+                <input asp-for="AppointmentsSoapModel.Address" class="form-control" />
+                <span asp-validation-for="AppointmentsSoapModel.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.ContactPhone" class="control-label"></label>
+                <input asp-for="AppointmentsSoapModel.ContactPhone" class="form-control" />
+                <span asp-validation-for="AppointmentsSoapModel.ContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.Notes" class="control-label"></label>
+                <input asp-for="AppointmentsSoapModel.Notes" class="form-control" />
+                <span asp-validation-for="AppointmentsSoapModel.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentsSoapModel.TotalAmount" class="control-label"></label>
+                <input asp-for="AppointmentsSoapModel.TotalAmount" class="form-control" type="number" step="0.01" min="0" />
+                <span asp-validation-for="AppointmentsSoapModel.TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <input asp-for="AppointmentsSoapModel.IsPaid" class="form-check-input" type="checkbox" />
+                <label asp-for="AppointmentsSoapModel.IsPaid" class="form-check-label">Is Paid</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
