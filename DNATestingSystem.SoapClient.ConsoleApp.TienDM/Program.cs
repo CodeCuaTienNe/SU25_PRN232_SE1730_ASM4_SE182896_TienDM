@@ -7,8 +7,8 @@ namespace DNATestingSystem.SoapClient.ConsoleApp.TienDM
     class Program
     {
         private static readonly string ServiceUrlHttps = "https://localhost:7077/AppointmentsTienDmSoapService.asmx";
-        private static readonly string ServiceUrlHttp = "http://localhost:5077/AppointmentsTienDmSoapService.asmx"; 
-       static async Task Main(string[] args)
+        private static readonly string ServiceUrlHttp = "http://localhost:5077/AppointmentsTienDmSoapService.asmx";
+        static async Task Main(string[] args)
         {
             Console.WriteLine("===========================================");
             Console.WriteLine("    DNA Testing System SOAP Client");
@@ -230,9 +230,9 @@ namespace DNATestingSystem.SoapClient.ConsoleApp.TienDM
             appointment.CreatedDate = DateTime.Now;
 
             var result = await client.CreateAppointmentAsync(appointment);
-            if (result != null)
+            if (result)
             {
-                Console.WriteLine($"Appointment created successfully: {result}");
+                Console.WriteLine($"Appointment created successfully.");
             }
             else
             {
@@ -257,9 +257,9 @@ namespace DNATestingSystem.SoapClient.ConsoleApp.TienDM
             foreach (var appointment in appointments)
             {
                 var result = await client.CreateAppointmentAsync(appointment);
-                if (result != null)
+                if (result)
                 {
-                    Console.WriteLine($"✓ Created: {result}");
+                    Console.WriteLine($"✓ Created");
                     successCount++;
                 }
                 else
@@ -326,9 +326,9 @@ namespace DNATestingSystem.SoapClient.ConsoleApp.TienDM
                 existingAppointment.ModifiedDate = DateTime.Now;
 
                 var result = await client.UpdateAppointmentAsync(id, existingAppointment);
-                if (result != null)
+                if (result)
                 {
-                    Console.WriteLine($"Appointment updated successfully: {result}");
+                    Console.WriteLine($"Appointment updated successfully.");
                 }
                 else
                 {

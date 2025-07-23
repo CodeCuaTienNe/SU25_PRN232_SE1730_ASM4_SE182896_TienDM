@@ -53,40 +53,23 @@ namespace DNATestingSystem.Repository.TienDM.Basic
 
         public async Task<int> UpdateAsync(T entity)
         {
-            //// Turning off Tracking for UpdateAsync in Entity Framework
-            _context.ChangeTracker.Clear();
-            var tracker = _context.Attach(entity);
-            tracker.State = EntityState.Modified;
-            return await _context.SaveChangesAsync();
-
-            /*
             try
             {
-                // Get primary key dynamically
-                var keyValues = _context.Model.FindEntityType(typeof(T))
-                                ?.FindPrimaryKey()
-                                ?.Properties
-                                ?.Select(p => p.PropertyInfo.GetValue(entity))
-                                .ToArray();
+                // Clear change tracker to avoid conflicts
+                _context.ChangeTracker.Clear();
 
-                if (keyValues == null || keyValues.Length == 0)
-                    throw new InvalidOperationException("No primary key defined for entity.");
+                // Update the entity
+                _context.Set<T>().Update(entity);
 
-                // Fetch existing entity without tracking
-                var existingEntity = await _context.Set<T>().FindAsync(keyValues);
-
-                if (existingEntity == null) return 0;
-
-                _context.Entry(existingEntity).State = EntityState.Detached; // ✅ Prevent tracking conflicts
-                _context.Entry(entity).State = EntityState.Modified; // ✅ Mark for update
-
+                // Save changes
                 return await _context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
-                return 0;
-            }           
-             */
+                // Clear tracker in case of error
+                _context.ChangeTracker.Clear();
+                throw new Exception($"Error updating entity: {ex.Message}", ex);
+            }
         }
 
         public bool Remove(T entity)

@@ -67,29 +67,33 @@ namespace DNATestingSystem.SoapClient.ConsoleApp.TienDM.Services
             }
         }
 
-        public async Task<AppointmentsTienDm?> CreateAppointmentAsync(AppointmentsTienDm appointment)
+        public async Task<bool> CreateAppointmentAsync(AppointmentsTienDm appointment)
         {
             try
             {
-                return await _client.CreateAppointmentsTienDmAsync(appointment);
+                var result = await _client.CreateAppointmentsTienDmAsync(appointment);
+                Console.WriteLine($"[Create] SOAP returned: {result}");
+                return result;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error creating appointment: {ex.Message}");
-                return null;
+                Console.WriteLine($"Error creating appointment: {ex.Message}\n{ex.StackTrace}");
+                return false;
             }
         }
 
-        public async Task<AppointmentsTienDm?> UpdateAppointmentAsync(int id, AppointmentsTienDm appointment)
+        public async Task<bool> UpdateAppointmentAsync(int id, AppointmentsTienDm appointment)
         {
             try
             {
-                return await _client.UpdateAppointmentsTienDmAsync(id, appointment);
+                var result = await _client.UpdateAppointmentsTienDmAsync(id, appointment);
+                Console.WriteLine($"[Update] SOAP returned: {result}");
+                return result;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error updating appointment ID {id}: {ex.Message}");
-                return null;
+                Console.WriteLine($"Error updating appointment ID {id}: {ex.Message}\n{ex.StackTrace}");
+                return false;
             }
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace DNATestingSystem.Repository.TienDM.Models;
 
@@ -28,12 +27,9 @@ public partial class SampleThinhLc
 
     public DateTime? DeletedAt { get; set; }
 
-    [JsonIgnore]
     public virtual AppointmentsTienDm AppointmentsTienDm { get; set; } = null!;
 
-    [JsonIgnore]
     public virtual ProfileThinhLc ProfileThinhLc { get; set; } = null!;
 
-    [JsonIgnore]
     public virtual SampleTypeThinhLc SampleTypeThinhLc { get; set; } = null!;
 }

@@ -26,7 +26,9 @@ namespace DNATestingSystem.Repository.TienDM
             try
             {
                 // Try without includes first to isolate the issue
-                var appointments = await _context.AppointmentsTienDms
+                var appointments = await _context.AppointmentsTienDms.Include(a => a.AppointmentStatusesTienDm)
+                    .Include(a => a.ServicesNhanVt)
+                    .Include(a => a.UserAccount)
                     .ToListAsync();
 
                 return appointments ?? new List<AppointmentsTienDm>();
@@ -36,15 +38,17 @@ namespace DNATestingSystem.Repository.TienDM
                 // Log the exception or rethrow with more details
                 throw new Exception($"Error in GetAllAsync: {ex.Message}", ex);
             }
-        }        /// <summary>
-                 /// Override GetByIdAsync to include related entities
-                 /// </summary>
+        }        
+
         public new async Task<AppointmentsTienDm> GetByIdAsync(int id)
         {
             try
             {
                 // Try without includes first to isolate the issue
-                var appointment = await _context.AppointmentsTienDms
+                var appointment = await _context.AppointmentsTienDms.
+                     Include(a => a.AppointmentStatusesTienDm)
+                    .Include(a => a.ServicesNhanVt)
+                    .Include(a => a.UserAccount)
                     .FirstOrDefaultAsync(a => a.AppointmentsTienDmid == id);
 
                 return appointment ?? new AppointmentsTienDm();
@@ -88,9 +92,9 @@ namespace DNATestingSystem.Repository.TienDM
 
             var query = BuildSearchQuery(id, contactPhone, totalAmount);
             return await ExecutePaginatedQuery(query, page, pageSize);
-        }        /// <summary>
-                 /// Builds the base search query with includes and filters
-                 /// </summary>
+        } 
+
+
         private IQueryable<AppointmentsTienDm> BuildSearchQuery(int id, string? contactPhone, decimal totalAmount)
         {
             return _context.AppointmentsTienDms
@@ -99,9 +103,6 @@ namespace DNATestingSystem.Repository.TienDM
                     && (id == 0 || a.AppointmentsTienDmid == id));
         }
 
-        /// <summary>
-        /// Executes paginated query and returns PaginationResult
-        /// </summary>
         private async Task<PaginationResult<List<AppointmentsTienDm>>> ExecutePaginatedQuery(IQueryable<AppointmentsTienDm> query, int page, int pageSize)
         {
             // Get total count for pagination
@@ -124,9 +125,9 @@ namespace DNATestingSystem.Repository.TienDM
                 PageSize = pageSize,
                 Items = appointments ?? new List<AppointmentsTienDm>()
             };
-        }/// <summary>
-         /// Override CreateAsync to set CreatedDate automatically
-         /// </summary>
+        }
+
+
         public new async Task<int> CreateAsync(AppointmentsTienDm entity)
         {
             if (entity.CreatedDate == null)
@@ -135,18 +136,14 @@ namespace DNATestingSystem.Repository.TienDM
             return await base.CreateAsync(entity);
         }
 
-        /// <summary>
-        /// Override UpdateAsync to set ModifiedDate automatically
-        /// </summary>
+
         public new async Task<int> UpdateAsync(AppointmentsTienDm entity)
         {
             entity.ModifiedDate = DateTime.Now;
             return await base.UpdateAsync(entity);
         }
 
-        /// <summary>
-        /// Delete appointment by ID - leverages base class RemoveAsync
-        /// </summary>
+
         public async Task<bool> DeleteAsync(int id)
         {
             var appointment = await _context.AppointmentsTienDms.FindAsync(id);

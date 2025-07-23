@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATestingSystem.Repository.NhanVT", "DNATestingSystem.Repository.NhanVT\DNATestingSystem.Repository.NhanVT.csproj", "{69AFDC2C-7DEE-5AD4-93F0-C6C670BE2D51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATestingSystem.Services.NhanVT", "DNATestingSystem.Services.NhanVT\DNATestingSystem.Services.NhanVT.csproj", "{45B5AEE6-38F3-FA72-DEEF-33746D6DDA00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATesting.SoapAPIServices.NhanVT", "DNATesting.SoapAPIServices.NhanVT\DNATesting.SoapAPIServices.NhanVT.csproj", "{18A3D0ED-22C9-4786-8766-21F622BED7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNATesting.SoapClient.ConsoleApp.NhanVT", "DNATesting.SoapClient.ConsoleApp.NhanVT\DNATesting.SoapClient.ConsoleApp.NhanVT.csproj", "{FBF58CEE-8D2E-478E-A27F-B83E806FF63E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69AFDC2C-7DEE-5AD4-93F0-C6C670BE2D51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69AFDC2C-7DEE-5AD4-93F0-C6C670BE2D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69AFDC2C-7DEE-5AD4-93F0-C6C670BE2D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69AFDC2C-7DEE-5AD4-93F0-C6C670BE2D51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B5AEE6-38F3-FA72-DEEF-33746D6DDA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B5AEE6-38F3-FA72-DEEF-33746D6DDA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B5AEE6-38F3-FA72-DEEF-33746D6DDA00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B5AEE6-38F3-FA72-DEEF-33746D6DDA00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A3D0ED-22C9-4786-8766-21F622BED7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A3D0ED-22C9-4786-8766-21F622BED7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A3D0ED-22C9-4786-8766-21F622BED7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A3D0ED-22C9-4786-8766-21F622BED7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF58CEE-8D2E-478E-A27F-B83E806FF63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF58CEE-8D2E-478E-A27F-B83E806FF63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF58CEE-8D2E-478E-A27F-B83E806FF63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF58CEE-8D2E-478E-A27F-B83E806FF63E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0430D0EC-3C09-4C73-82F5-FB46DE4F80E4}
+	EndGlobalSection
+EndGlobal

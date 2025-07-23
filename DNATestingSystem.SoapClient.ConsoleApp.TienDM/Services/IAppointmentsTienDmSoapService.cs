@@ -13,10 +13,10 @@ namespace DNATestingSystem.SoapClient.ConsoleApp.TienDM.Services
         Task<AppointmentsTienDm?> GetAppointmentsTienDmByIdAsync(int id);
 
         [OperationContract]
-        Task<AppointmentsTienDm> CreateAppointmentsTienDmAsync(AppointmentsTienDm appointment);
+        Task<bool> CreateAppointmentsTienDmAsync(AppointmentsTienDm appointment);
 
         [OperationContract]
-        Task<AppointmentsTienDm?> UpdateAppointmentsTienDmAsync(int id, AppointmentsTienDm appointment);
+        Task<bool> UpdateAppointmentsTienDmAsync(int id, AppointmentsTienDm appointment);
 
         [OperationContract]
         Task<bool> DeleteAppointmentsTienDmAsync(int id);

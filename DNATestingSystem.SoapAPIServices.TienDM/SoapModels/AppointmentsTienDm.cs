@@ -9,93 +9,91 @@ using DNATestingSystem.Repository.TienDM.Validation;
 
 namespace DNATestingSystem.SoapAPIServices.TienDM.SoapModels;
 
-[DataContract]
+[DataContract(Namespace = "http://tempuri.org/")]
 public partial class AppointmentsTienDm
 {
-    [DataMember]
+    [DataMember(Order = 0)]
     public int AppointmentsTienDmid { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 1)]
     [Required(ErrorMessage = "User Account is required")]
     [Display(Name = "User Account")]
     public int UserAccountId { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 2)]
     [Required(ErrorMessage = "Service selection is required")]
     [Display(Name = "Service")]
     public int ServicesNhanVtid { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 3)]
     [Required(ErrorMessage = "Appointment status is required")]
     [Display(Name = "Appointment Status")]
     public int AppointmentStatusesTienDmid { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 4)]
     [Required(ErrorMessage = "Appointment date is required")]
-    [FutureDate(ErrorMessage = "Appointment date must be today or a future date")]
     [Display(Name = "Appointment Date")]
-    [DataType(DataType.Date)]
-    public DateOnly AppointmentDate { get; set; }
+    public string AppointmentDate { get; set; } = "";
 
-    [DataMember]
+    [DataMember(Order = 5)]
     [Required(ErrorMessage = "Appointment time is required")]
     [Display(Name = "Appointment Time")]
-    [DataType(DataType.Time)]
-    public TimeOnly AppointmentTime { get; set; }
+    public string AppointmentTime { get; set; } = "";
 
-    [DataMember]
+    [DataMember(Order = 6)]
     [Required(ErrorMessage = "Sampling method is required")]
-    //[StringLength(100, MinimumLength = 3, ErrorMessage = "Sampling method must be between 3 and 100 characters")]
-    //[Display(Name = "Sampling Method")]
-    public string SamplingMethod { get; set; } = null!;
+    public string SamplingMethod { get; set; } = "";
 
-    [DataMember]
+    [DataMember(Order = 7)]
     [StringLength(250, ErrorMessage = "Address cannot exceed 250 characters")]
     [Display(Name = "Address")]
     public string? Address { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 8)]
     [Required(ErrorMessage = "Contact phone is required")]
     [Phone(ErrorMessage = "Please enter a valid phone number")]
     [StringLength(15, MinimumLength = 10, ErrorMessage = "Contact phone must be between 10 and 15 characters")]
     [Display(Name = "Contact Phone")]
-    public string ContactPhone { get; set; } = null!;
+    public string ContactPhone { get; set; } = "";
 
-    [DataMember]
+    [DataMember(Order = 9)]
     [StringLength(500, ErrorMessage = "Notes cannot exceed 500 characters")]
     [Display(Name = "Notes")]
     public string? Notes { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 10)]
     [Display(Name = "Created Date")]
     public DateTime? CreatedDate { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 11)]
     [Display(Name = "Modified Date")]
     public DateTime? ModifiedDate { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 12)]
     [Required(ErrorMessage = "Total amount is required")]
     [Range(0.01, 999999.99, ErrorMessage = "Total amount must be between 0.01 and 999,999.99")]
     [DataType(DataType.Currency)]
     [Display(Name = "Total Amount")]
     public decimal TotalAmount { get; set; }
 
-    [DataMember]
+    [DataMember(Order = 13)]
     [Display(Name = "Is Paid")]
     public bool? IsPaid { get; set; }
 
-    [DataMember]
-    public virtual AppointmentStatusesTienDm? AppointmentStatusesTienDm { get; set; }
+    //[DataMember]
+    //[JsonIgnore]
+    //public virtual AppointmentStatusesTienDm? AppointmentStatusesTienDm { get; set; }
 
-    [DataMember]
-    [JsonIgnore]
-    public virtual ICollection<SampleThinhLc> SampleThinhLcs { get; set; } = new List<SampleThinhLc>();
+    //[DataMember]
+    //[JsonIgnore]
+    //public virtual ICollection<SampleThinhLc> SampleThinhLcs { get; set; } = new List<SampleThinhLc>();
 
-    [DataMember]
-    public virtual ServicesNhanVt? ServicesNhanVt { get; set; }
+    //[DataMember]
+    //[JsonIgnore]
+    //public virtual ServicesNhanVt? ServicesNhanVt { get; set; }
 
-    [DataMember]
-    public virtual SystemUserAccount? UserAccount { get; set; }
+    //[DataMember]
+    //[JsonIgnore]
+    //public virtual SystemUserAccount? UserAccount { get; set; }
 
 }
