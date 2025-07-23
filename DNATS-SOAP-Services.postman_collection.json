@@ -1,153 +1,219 @@
 {
-  "info": {
-    "_postman_id": "dna-testing-soap-services",
-    "name": "DNA Testing System - SOAP Services",
-    "description": "Collection for testing DNA Testing System SOAP API Services",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Get All Appointments (SOAP XML)",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
-          {
-            "key": "SOAPAction",
-            "value": "http://tempuri.org/IAppointmentsTienDmSoapService/GetAppointmentsTienDmsAsync"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <GetAppointmentsTienDms xmlns=\"http://tempuri.org/\">\n    </GetAppointmentsTienDms>\n  </soap:Body>\n</soap:Envelope>"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
-          "host": ["{{baseUrl}}"],
-          "path": ["AppointmentsTienDmSoapService.asmx"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Appointment By ID (SOAP XML)",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
-          {
-            "key": "SOAPAction",
-            "value": "http://tempuri.org/IAppointmentsTienDmSoapService/GetAppointmentsTienDmByIdAsync"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <GetAppointmentsTienDmById xmlns=\"http://tempuri.org/\">\n      <id>{{appointmentId}}</id>\n    </GetAppointmentsTienDmById>\n  </soap:Body>\n</soap:Envelope>"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
-          "host": ["{{baseUrl}}"],
-          "path": ["AppointmentsTienDmSoapService.asmx"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Create Appointment (SOAP XML)",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
-          {
-            "key": "SOAPAction",
-            "value": "http://tempuri.org/IAppointmentsTienDmSoapService/CreateAppointmentsTienDmAsync"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <CreateAppointmentsTienDm xmlns=\"http://tempuri.org/\">\n      <appointment>\n        <UserAccountId>1</UserAccountId>\n        <ServicesNhanVtid>1</ServicesNhanVtid>\n        <AppointmentStatusesTienDmid>1</AppointmentStatusesTienDmid>\n        <AppointmentDate>2025-07-15</AppointmentDate>\n        <AppointmentTime>14:30:00</AppointmentTime>\n        <SamplingMethod>Blood Sample</SamplingMethod>\n        <Address>123 Test Street, Hanoi</Address>\n        <ContactPhone>0123456789</ContactPhone>\n        <Notes>Test appointment created via Postman</Notes>\n        <TotalAmount>500000</TotalAmount>\n        <IsPaid>false</IsPaid>\n      </appointment>\n    </CreateAppointmentsTienDm>\n  </soap:Body>\n</soap:Envelope>"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
-          "host": ["{{baseUrl}}"],
-          "path": ["AppointmentsTienDmSoapService.asmx"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Update Appointment (SOAP XML)",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
-          {
-            "key": "SOAPAction",
-            "value": "http://tempuri.org/IAppointmentsTienDmSoapService/UpdateAppointmentsTienDmAsync"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <UpdateAppointmentsTienDm xmlns=\"http://tempuri.org/\">\n      <id>{{appointmentId}}</id>\n      <appointment>\n        <AppointmentsTienDmid>{{appointmentId}}</AppointmentsTienDmid>\n        <UserAccountId>1</UserAccountId>\n        <ServicesNhanVtid>1</ServicesNhanVtid>\n        <AppointmentStatusesTienDmid>2</AppointmentStatusesTienDmid>\n        <AppointmentDate>2025-07-15</AppointmentDate>\n        <AppointmentTime>15:30:00</AppointmentTime>\n        <SamplingMethod>Saliva Sample</SamplingMethod>\n        <Address>456 Updated Street, Ho Chi Minh City</Address>\n        <ContactPhone>0987654321</ContactPhone>\n        <Notes>Updated appointment via Postman</Notes>\n        <TotalAmount>750000</TotalAmount>\n        <IsPaid>true</IsPaid>\n      </appointment>\n    </UpdateAppointmentsTienDm>\n  </soap:Body>\n</soap:Envelope>"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
-          "host": ["{{baseUrl}}"],
-          "path": ["AppointmentsTienDmSoapService.asmx"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Delete Appointment (SOAP XML)",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
-          {
-            "key": "SOAPAction",
-            "value": "http://tempuri.org/IAppointmentsTienDmSoapService/DeleteAppointmentsTienDmAsync"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <DeleteAppointmentsTienDm xmlns=\"http://tempuri.org/\">\n      <id>{{appointmentId}}</id>\n    </DeleteAppointmentsTienDm>\n  </soap:Body>\n</soap:Envelope>"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
-          "host": ["{{baseUrl}}"],
-          "path": ["AppointmentsTienDmSoapService.asmx"]
-        }
-      },
-      "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [""]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [""]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "https://localhost:7077",
-      "type": "string"
-    },
-    {
-      "key": "appointmentId",
-      "value": "1",
-      "type": "string"
-    }
-  ]
+	"info": {
+		"_postman_id": "aa5569b1-856a-4b06-9297-81bcc6648598",
+		"name": "DNATestingSystem.SOAP.TienDM",
+		"description": "Collection for testing DNA Testing System SOAP API Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36287364"
+	},
+	"item": [
+		{
+			"name": "Get All Appointments (SOAP XML)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/IAppointmentsTienDmSoapService/GetAppointmentsTienDmsAsync"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <GetAppointmentsTienDms xmlns=\"http://tempuri.org/\">\n    </GetAppointmentsTienDms>\n  </soap:Body>\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AppointmentsTienDmSoapService.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointment By ID (SOAP XML)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/IAppointmentsTienDmSoapService/GetAppointmentsTienDmByIdAsync"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <GetAppointmentsTienDmById xmlns=\"http://tempuri.org/\">\n      <id>1</id>\n    </GetAppointmentsTienDmById>\n  </soap:Body>\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AppointmentsTienDmSoapService.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Appointment (SOAP XML)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/IAppointmentsTienDmSoapService/CreateAppointmentsTienDmAsync"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n               xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n               xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <CreateAppointmentsTienDm xmlns=\"http://tempuri.org/\">\n      <appointment>\n        <UserAccountId>2</UserAccountId>\n        <ServicesNhanVtid>2</ServicesNhanVtid>\n        <AppointmentStatusesTienDmid>2</AppointmentStatusesTienDmid>\n        <AppointmentDate>2025-01-18</AppointmentDate>\n        <AppointmentTime>11:20:00</AppointmentTime>\n        <SamplingMethod>AA Sample Method</SamplingMethod>\n        <Address>123 Main St, City</Address>\n        <ContactPhone>0904567890</ContactPhone>\n        <Notes>APSCStatus Update: Service completed</Notes>\n        <TotalAmount>2.00</TotalAmount>\n        <IsPaid>true</IsPaid>\n      </appointment>\n    </CreateAppointmentsTienDm>\n  </soap:Body>\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AppointmentsTienDmSoapService.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Appointment (SOAP XML)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/IAppointmentsTienDmSoapService/UpdateAppointmentsTienDmAsync"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n               xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \n               xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <UpdateAppointmentsTienDm xmlns=\"http://tempuri.org/\">\n      <id>5</id>\n      <appointment>\n        <UserAccountId>1</UserAccountId>\n        <ServicesNhanVtid>1</ServicesNhanVtid>\n        <AppointmentStatusesTienDmid>2</AppointmentStatusesTienDmid>\n        <AppointmentDate>2025-07-15</AppointmentDate>\n        <AppointmentTime>15:30:00</AppointmentTime>\n        <SamplingMethod>Saliva Sample</SamplingMethod>\n        <Address>456 Updated Street, Ho Chi Minh City</Address>\n        <ContactPhone>0987654321</ContactPhone>\n        <Notes>Updated appointment via Postman</Notes>\n        <TotalAmount>750000</TotalAmount>\n        <IsPaid>true</IsPaid>\n      </appointment>\n    </UpdateAppointmentsTienDm>\n  </soap:Body>\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AppointmentsTienDmSoapService.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Appointment (SOAP XML)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					},
+					{
+						"key": "SOAPAction",
+						"value": "http://tempuri.org/IAppointmentsTienDmSoapService/DeleteAppointmentsTienDmAsync"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <DeleteAppointmentsTienDm xmlns=\"http://tempuri.org/\">\n      <id>12</id>\n    </DeleteAppointmentsTienDm>\n  </soap:Body>\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AppointmentsTienDmSoapService.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n               xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n               xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <TestAppointmentData xmlns=\"http://tempuri.org/\">\r\n      <appointment>\r\n        <UserAccountId>2</UserAccountId>\r\n        <ServicesNhanVtid>3</ServicesNhanVtid>\r\n        <AppointmentStatusesTienDmid>4</AppointmentStatusesTienDmid>\r\n        <AppointmentDate>2025-01-18</AppointmentDate>\r\n        <AppointmentTime>11:20:00</AppointmentTime>\r\n        <SamplingMethod>AA Sample</SamplingMethod>\r\n        <Address>123 Main St, City</Address> \r\n        <ContactPhone>0904567890</ContactPhone>\r\n        <Notes>APSCStatus Update: Service completed</Notes>\r\n        <TotalAmount>2.00</TotalAmount>\r\n        <IsPaid>true</IsPaid>\r\n      </appointment>\r\n    </TestAppointmentData>\r\n  </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/AppointmentsTienDmSoapService.asmx",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"AppointmentsTienDmSoapService.asmx"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:7077",
+			"type": "string"
+		},
+		{
+			"key": "appointmentId",
+			"value": "1",
+			"type": "string"
+		}
+	]
 }
